@@ -3,8 +3,7 @@ function getComputerChoice(){
     const random =Math.floor(Math.random() * options.length) // picks a random array elemnt
     return options[random] //returns an element randomly
 }
-let computerSelection = getComputerChoice();
-computerSelection = computerSelection.toLocaleLowerCase();
+
 //end of computer selection
 // player selection
 function playerChoice(){
@@ -12,15 +11,14 @@ function playerChoice(){
     choice=choice.toLocaleLowerCase();
     return choice
 }
-let playerSelection=playerChoice()
 // end of palyer selection
-
-function playRound(){
-    let playerScore=0;
-    let computerScore=0;
-    for(let i = 0; i<10; i++){
-    if(computerScore <= 5 && playerScore <= 5){
-
+var playerScore=0;
+var computerScore=0;
+function playGame(){
+    
+    let playerSelection=playerChoice()
+    let computerSelection = getComputerChoice();
+    computerSelection = computerSelection.toLocaleLowerCase();
     //computerSelection rock 
     if ((playerSelection == "rock") && (computerSelection == "rock")){
         console.log("It's a tie!");
@@ -62,9 +60,10 @@ function playRound(){
     }
     console.log(playerScore);
     console.log(computerScore);
-    
-}}}
+    console.log(computerSelection);
+    console.log(playerSelection);
+}
 
-console.log(computerSelection);
-console.log(playerSelection);
-playRound()
+while(computerScore <= 4 && playerScore <= 4){
+playGame()
+}
