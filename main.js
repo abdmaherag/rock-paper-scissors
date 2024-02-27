@@ -69,7 +69,7 @@ function playGame(){
         announce.appendChild(slp)
         computerScore++;
     }
-    else if ((playerSelection == "scissors") && (computerSelection == "scissors")){
+    else if ((computerSelection.toLocaleLowerCase() == "scissors")){
         console.log("It's a tie! Scissors can't beat eachother");
         const scissorTie = document.createElement('div')
         scissorTie.textContent= "It's a tie! Scissors can't beat eachother"
@@ -104,16 +104,85 @@ paper.textContent='Paper'
 //Scissors button styles
 const scissors = document.querySelector("#scissors")
 scissors.textContent='Scissors'
+function playGameButtons(){
+
+let computerSelection = getComputerChoice();
 
 const rockClicked = rock.addEventListener('click', function(){
     console.log('You chose rock!');
+    console.log(computerSelection);
+    if ((computerSelection.toLocaleLowerCase() == "rock")){
+        const rockTie = document.createElement('div');
+        rockTie.textContent="It's a tie! Rocks can't beat each other:>";
+        announce.appendChild(rockTie)
+    }
+    else if ((computerSelection.toLocaleLowerCase() == "paper")){
+        const paperW = document.createElement('div');
+        paperW.textContent="You LOST! Rocks can't beat Paper :<";
+        announce.appendChild(paperW)
+        computerScore++;
+
+    }
+    else if ((computerSelection.toLocaleLowerCase() == "scissors")){
+        const scissorsL = document.createElement('div');
+        scissorsL.textContent = "You WIN! Rock beats Scissors :>"
+        announce.appendChild(scissorsL)
+        playerScore++;
+
+    }
 });
 const paperClicked = paper.addEventListener('click', function(){
     console.log('You chose Paper!');
+    if ((computerSelection.toLocaleLowerCase() == "rock")){
+        const rockTie = document.createElement('div');
+        rockTie.textContent="You WIN! Paper beats Rock :>";
+        announce.appendChild(rockTie)
+        playerScore++;
+        console.log(playerScore);
+        console.log(computerScore);
+    }
+    else if ((computerSelection.toLocaleLowerCase() == "paper")){
+        const paperW = document.createElement('div');
+        paperW.textContent="It's a tie! Papers can't beat eachother.";
+        announce.appendChild(paperW)
+    }
+    else if ((computerSelection.toLocaleLowerCase() == "scissors")){
+        const scissorsL = document.createElement('div');
+        scissorsL.textContent = "You LOST! Papers loses to Scissors :<"
+        announce.appendChild(scissorsL)
+        computerScore++;
+        console.log(playerScore);
+        console.log(computerScore);
+    }
 });
 const scissorsClicked = scissors.addEventListener('click', function(){
     console.log('You chose Scissors!');
-    if(scissorsClicked){
-        console.log();
+    if ((computerSelection.toLocaleLowerCase() == "rock")){
+        const rockTie = document.createElement('div');
+        rockTie.textContent="You LOST! Rock beats Scissors :>";
+        announce.appendChild(rockTie)
+        computerScore++;
+        console.log(playerScore);
+        console.log(computerScore);
+    }
+    else if ((computerSelection.toLocaleLowerCase() == "paper")){
+        const paperW = document.createElement('div');
+        paperW.textContent="You WIN! Scissors beats Paper.";
+        announce.appendChild(paperW)
+        playerScore++;
+        console.log(playerScore);
+        console.log(computerScore);
+    }
+    else if ((computerSelection.toLocaleLowerCase() == "scissors")){
+        const scissorsL = document.createElement('div');
+        scissorsL.textContent = "It's a Tie! Scissors can't beat eachother"
+        announce.appendChild(scissorsL)
     }
 }); 
+console.log(playerScore);
+console.log(computerScore);
+}
+// while(computerScore <= 4 && playerScore <= 4){
+//     playGameButtons()
+//  }
+    playGameButtons()
