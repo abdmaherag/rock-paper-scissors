@@ -64,6 +64,24 @@ function playGame(){
     console.log(playerSelection);
 }
 
-while(computerScore <= 4 && playerScore <= 4){
-playGame()
-}
+// while(computerScore <= 4 && playerScore <= 4){
+// playGame()
+// }
+// playGame()
+
+//Rock button styles
+const rock = document.querySelector("#rock")
+rock.textContent='Rock'
+rock.style.padding = '8px'
+rock.style.marginRight='8px'
+//Paper button styles
+const paper = document.querySelector("#paper")
+paper.textContent='Paper'
+paper.style.padding = '8px'
+paper.style.marginRight='8px'
+//Scissors button styles
+const scissors = document.querySelector("#scissors")
+scissors.textContent='Scissors'
+scissors.style.padding = '8px'
+scissors.style.marginRight='8px'
+
