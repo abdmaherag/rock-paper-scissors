@@ -21,20 +21,17 @@ function playGame(){
     computerSelection = computerSelection.toLocaleLowerCase();
     //computerSelection rock 
     if ((playerSelection == "rock") && (computerSelection == "rock")){
-        console.log("It's a tie!");
         const rockTie = document.createElement('div');
         rockTie.textContent="It's a tie! Rocks can't beat each other:>";
         announce.appendChild(rockTie)
     }
     else if ((playerSelection == "paper") && (computerSelection == "rock")){
-        console.log("You win! Paper beats Rock :>");
         const paperW = document.createElement('div');
         paperW.textContent="You win! Paper beats Rock";
         announce.appendChild(paperW)
         playerScore++;
     }
     else if ((playerSelection == "scissors") && (computerSelection == "rock")){
-        console.log("You lost! Rock beats Scissors :<");
         const scissorsL = document.createElement('div');
         scissorsL.textContent = "You lost! Rock beats Scissors :<"
         announce.appendChild(scissorsL)
@@ -42,20 +39,17 @@ function playGame(){
     }
     //computerSelection paper 
     else if ((playerSelection == "rock") && (computerSelection == "paper")){
-        console.log("You lost! Paper beats Rock :<");
         const paperL = document.createElement('div')
         paperL.textContent="You lost! Paper beats Rock :<"
         announce.appendChild(paperL)
         computerScore++;
     }
     else if ((playerSelection == "paper") && (computerSelection == "paper")){
-        console.log("It's a tie! Paper can't beat eachother.");
         const paperTie = document.createElement('div')
         paperTie.textContent="It's a tie! Paper can't beat eachother."
         announce.appendChild(paperTie)
     }
     else if ((playerSelection == "scissors") && (computerSelection == "paper")){
-        console.log("You Win! Scissors beats Paper :>");
         const scissorsW= document.createElement('div')
         scissorsW.textContent="You Win! Scissors beats Paper :>"
         announce.appendChild(scissorsW)
@@ -63,7 +57,6 @@ function playGame(){
     }
     //computerSelection scissors
     else if ((playerSelection == "rock") && (computerSelection == "scissors")){
-        console.log("You win! Rock beats scissor :>");
         const rockW = document.createElement('div')
         rockW.textContent = "You win! Rock beats scissor :>"
         announce.appendChild(rockW)
@@ -120,4 +113,7 @@ const paperClicked = paper.addEventListener('click', function(){
 });
 const scissorsClicked = scissors.addEventListener('click', function(){
     console.log('You chose Scissors!');
-});
+    if(scissorsClicked){
+        console.log();
+    }
+}); 
